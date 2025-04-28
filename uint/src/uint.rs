@@ -1322,6 +1322,12 @@ macro_rules! construct_uint {
 			}
 		}
 
+		impl From<[u8; 32]> for U256 {
+			fn from(bytes: [u8; 32]) -> Self {
+				U256::from_big_endian(&bytes)
+			}
+		}
+
 		impl $crate::core_::default::Default for $name {
 			fn default() -> Self {
 				$name::zero()
