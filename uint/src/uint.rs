@@ -1321,41 +1321,6 @@ macro_rules! construct_uint {
 				f.pad_integral(true, "0x", s)
 			}
 		}
-		impl From<[u8; 16]> for U128 {
-			fn from(bytes: [u8; 16]) -> Self {
-				Self::from_big_endian(&bytes)
-			}
-		}
-
-		impl From<[u8; 32]> for U256 {
-			fn from(bytes: [u8; 32]) -> Self {
-				Self::from_big_endian(&bytes)
-			}
-		}
-
-		impl From<[u8; 64]> for U512 {
-			fn from(bytes: [u8; 64]) -> Self {
-				Self::from_big_endian(&bytes)
-			}
-		}
-
-		impl From<&[u8]> for U256 {
-			fn from(slice: &[u8]) -> Self {
-				Self::from_big_endian(slice)
-			}
-		}
-
-		impl From<&[u8]> for U128 {
-			fn from(slice: &[u8]) -> Self {
-				Self::from_big_endian(slice)
-			}
-		}
-
-		impl From<&[u8]> for U512 {
-			fn from(slice: &[u8]) -> Self {
-				Self::from_big_endian(slice)
-			}
-		}
 
 		impl $crate::core_::default::Default for $name {
 			fn default() -> Self {
