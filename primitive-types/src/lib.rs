@@ -272,3 +272,9 @@ impl<'a> TryFrom<&'a U512> for U256 {
 		Ok(U256(ret))
 	}
 }
+
+impl From<[u8; 32]> for U256 {
+	fn from(bytes: [u8; 32]) -> Self {
+		Self::from_big_endian(&bytes)
+	}
+}
